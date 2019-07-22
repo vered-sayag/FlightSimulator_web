@@ -1,0 +1,23 @@
+commit acfc402383f45bde4a1eb1df99299db1c0b85830
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue May 28 21:18:28 2019 +0300
+
+    end day
+
+commit 1701aec0dd75f34154794b37b2342a7081c35bca
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue May 28 17:35:11 2019 +0300
+
+    start
+
+commit fd639e2652a5e9867e87bcbf1f5c2bd9d64a3636
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue May 28 17:23:21 2019 +0300
+
+    Add project files.
+
+commit 808dd54d6f8b7d09acfffdf2f8ac63932dc877fe
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue May 28 17:23:18 2019 +0300
+
+    Add .gitignore and .gitattributes.

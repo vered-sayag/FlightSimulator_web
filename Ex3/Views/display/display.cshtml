@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "display";
+}
+<head>
+    <style>
+        body {
+            margin: 0px;
+        }
+        div {
+            margin: 0px;
+        }
+        h2 {
+            font-size: 50px;
+            color: black;
+            font-family: 'Gill Sans';
+            text-align: center;
+            padding: unset;
+            Margin: unset;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body background="~/Content/Images/export-map-share.png" style="background-size:100% 100%; background-attachment:fixed; width:100%; height:100%; overflow: hidden;">
+    <div id="divCanva">
+        <canvas id="canvas" style="position:absolute"></canvas>
+    </div>
+    <div id="divText">
+        <h2 id="mytxt">Drawing...</h2>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/drawLine.js"></script>
+    <script src="~/Scripts/drawPoint.js"></script>
+    <script src="~/Scripts/xmlRead.js"></script>
+    <script src="~/Scripts/realDraw.js"></script>
+
+    <script>
+        canvas.setAttribute('width', window.innerWidth)
+        canvas.setAttribute('height', window.innerHeight)
+        var old_lon;
+        var old_lat;
+        var c = document.getElementById("canvas").getContext("2d");
+        drawPoint(@ViewBag.lon,@ViewBag.lat);
+        myTimer = (function () {
+           $.post("@Url.Action("GetFileLocation")").done(function (xml) {
+
+               xmlRead(xml);
+               if (lon === 200) {
+                   stop();
+               } else {
+                   realDraw(c, "red");
+               }
+        });
+        });
+        IntervalTime =@ViewBag.time * 1000;
+        interval = setInterval(myTimer, IntervalTime);
+        myTimer();
+         stop = (function () {
+             clearInterval(interval)
+             alert("The scenario ended");
+             document.getElementById("mytxt").innerHTML = "Done";
+        });
+
+    </script>
+</body>
